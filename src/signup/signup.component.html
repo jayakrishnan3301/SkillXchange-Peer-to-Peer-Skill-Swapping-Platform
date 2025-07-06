@@ -1,0 +1,72 @@
+<div class="container">
+  <form [formGroup]="signupForm" (ngSubmit)="submitForm()">
+
+    <!-- Name Field -->
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" placeholder="Enter You'r Name" formControlName="name" />
+      <div *ngIf="signupForm?.get('name')?.invalid  && signupForm?.get('name').touched" class="text-danger">
+        Name is Required
+      </div>
+    </div>
+
+    <!-- email Field -->
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" placeholder="Email" formControlName="email" />
+      <div *ngIf="signupForm?.get('email').invalid && 
+            (signupForm?.get('email').touched || signupForm?.get('email').dirty)" class="text-danger">
+        Please enter a valid email.
+      </div>
+    </div>
+
+    <!-- Address Field -->
+    <div class="form-group">
+      <label for="address">Address</label>
+      <textarea type="text" class="form-control" formControlName="address">
+      </textarea>
+      <div *ngIf="signupForm?.get('address').invalid && 
+            (signupForm?.get('address').touched || signupForm?.get('address').dirty)" class="text-danger">
+        Please enter a valid Address.
+      </div>
+    </div>
+
+    <!-- Mobile No Field -->
+    <div class="form-group">
+      <label for="mobileno">Mobile No</label>
+      <input type="number" class="form-control" formControlName="mobileno" placeholder="Mobile Number" />
+      <div
+        *ngIf="signupForm?.get('mobileno').invalid && (signupForm?.get('mobileno').touched || signupForm?.get('mobileno').dirty)"
+        class="text-danger">
+        Please enter a valid mobile Number
+      </div>
+    </div>
+
+    <!-- Age Field -->
+    <div class="form-group">
+      <label for="age">Age</label>
+      <input type="number" class="form-control" placeholder="Age" formControlName="age" />
+      <div *ngIf="signupForm?.get('age').invalid && (signupForm?.get('age').touched || signupForm?.get('age').dirty)"
+        class="text-danger">
+        Please enter a valid Age
+      </div>
+    </div>
+
+    <!-- Gender Field-->
+    <div class="form-group">
+      <label for="gender">Gender</label>
+      <select class="form-control" formControlName="gender">
+        <option value="" disabled>Select Gender</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="others">Others</option>
+      </select>
+      <div
+        *ngIf="signupForm?.get('gender').invalid && (signupForm?.get('gender').touched || signupForm?.get('gender').dirty)" class="text-danger">
+        Please Select a Gender
+      </div>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Submit</button>
+  </form>
+</div>

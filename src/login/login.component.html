@@ -1,0 +1,31 @@
+<div class="container">
+
+  <form [formGroup]="loginform" (ngSubmit)="Onsubmit()">
+
+    <!-- User Name -->
+    <div class="form-group">
+      <label for="username">UserName</label>
+      <input type="text" class="form-control" formControlName="username" placeholder="UserName" />
+      <div
+        *ngIf="loginform?.get('username').invalid && (loginform?.get('username').touched || loginform?.get('username').dirty)"
+        class="text-danger">
+        Please enter User Name
+      </div>
+    </div>
+
+    <!-- Password -->
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input class="form-control" type="password" formControlName="password" placeholder="password" />
+      <div
+        *ngIf="loginform?.get('password').invalid && (loginform?.get('password').touched || loginform?.get('password').dirty)"
+        class="text-danger">
+        Please enter Password
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+
+  </form>
+
+</div>
