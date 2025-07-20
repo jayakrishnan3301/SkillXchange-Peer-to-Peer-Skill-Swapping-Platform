@@ -1,7 +1,5 @@
-<div class="header-content d-flex justify-content-end mt-3 mx-3">
-  <button class="login" [routerLink]="['/login']">Login</button>
-  <button class="signUp ms-3" [routerLink]="['/signUp']">Sign UP</button>
-</div>
+<!-- Login and SignUp Header -->
+<app-header *ngIf="showHeader"></app-header>
 
 <div [@routeFadeAnimation]="getAnimationState(outlet)">
   <router-outlet #outlet="outlet"></router-outlet>

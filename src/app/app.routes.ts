@@ -5,6 +5,18 @@ import { SkillXchangeComponent } from '../skill-xchange/skill-xchange.component'
 
 export const routes: Routes = [
   { path: '', component: SkillXchangeComponent },
-  { path: 'login', component: LoginComponent, data: { animation: 'login' } },
-  { path: 'signUp', component: SignupComponent, data: { animation: 'signUp' } }
+
+  {
+    path: 'login', component: LoginComponent,
+    data: {
+      animation: 'login', showHeader: false
+    }
+  },
+
+  {
+    path: 'signUp', component: SignupComponent,
+    data: {
+      animation: 'signUp', showHeader: false
+    }
+  }
 ];

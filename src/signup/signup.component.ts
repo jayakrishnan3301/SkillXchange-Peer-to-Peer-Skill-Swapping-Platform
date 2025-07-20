@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder,Validators } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
   standalone:true,
-  imports: [ReactiveFormsModule,CommonModule],
+  imports: [ReactiveFormsModule,CommonModule,RouterModule],
   templateUrl: './signup.component.html',
   styleUrl: './signup.component.css'
 })
@@ -19,18 +20,19 @@ export class SignupComponent {
   ngOnInit(): void {
     this.signupForm = this.formbuilder.group({
 
-      name      : ['', Validators.required]                     ,
-      email     : ['', Validators.compose([Validators.required, 
-                      Validators.email])
-                  ]                                             ,
-      address   : ['', Validators.required]                     ,
-      mobileno  : ['', Validators.compose([Validators.required                      ,
-                      Validators.pattern('[0-9]{10}')])  
-                  ]                                             ,
-      age       : ['', Validators.compose([Validators.required,
-                      Validators.min(20),Validators.max(50)])
-                  ]                                             ,
-      gender    : ['', Validators.required]
+      firstname : ['',  Validators.compose([Validators.required   , 
+                        Validators.pattern(/^[a-zA-Z ]+$/)])
+                  ]                                               ,
+
+      lastname  : ['',  Validators.compose([Validators.required   ,
+                        Validators.pattern(/^[a-zA-Z ]+$/)])   
+                  ]                                               ,
+
+      email     : ['',  Validators.compose([Validators.required   , 
+                        Validators.email])
+                  ]                                               ,
+                  
+      password  : ['',  Validators.required]                      
 
     })
   }
